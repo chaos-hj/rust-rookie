@@ -77,3 +77,4 @@ fn read_file() -> Result<(), Box<dyn Error>> {
     let f = File::open("hello.txt");
     Ok(())
 }
+

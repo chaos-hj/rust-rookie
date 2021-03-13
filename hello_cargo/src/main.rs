@@ -84,10 +84,10 @@ fn doSomething2(s: &String) -> usize {
  *this function's return type contains a borrowed value, but there is no value for it to be borrowed from
  *help: consider using the `'static` lifetime: `&'static
 */
-fn dangle() -> &String {
-    let s = String::from("hello");
-
-    &s
+fn dangle<'a>() -> &'a str {
+    // let s = String::from("hello");
+    // &s
+    "hello"
 }
 
 fn no_dangle() -> String {
