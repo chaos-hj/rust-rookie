@@ -21,7 +21,7 @@ impl Cuboid {
         self.length * self.width * self.height
     }
 
-    fn can_hold(&self, other: &Cuboid) -> bool {
+    fn _can_hold(&self, other: &Cuboid) -> bool {
         self.length > other.length && self.width > other.width
     }
 
@@ -43,33 +43,35 @@ fn main() {
         active: true,
     };
 
+    println!("username:{}, sing_in_count: {}", user1.username, user1.sign_in_count);
+
     if user1.active {
         user1.email = String::from("***@qq.com");
     }
 
-    let user2 = build_user(String::from("xxx"), String::from("xxx@gmail.com"));
+    let _user2 = build_user(String::from("xxx"), String::from("xxx@gmail.com"));
 
-    let user2 = User {
+    let _user2 = User {
         username: String::from("xxx@qq.com"),
         ..user1
     };
 
-    let black = Color(0, 0, 0);
-    let white = Color(255, 255, 255);
+    let _black = Color(0, 0, 0);
+    let _white = Color(255, 255, 255);
 
-    let v = volume(10, 10, 10);
-    let v = volume1(CuboidTup(10,20,30));
+    let _v = volume(10, 10, 10);
+    let _v = volume1(CuboidTup(10,20,30));
 
     let cuboid = Cuboid{
         length: 10,
         width: 20,
         height: 30,
     };
-    let v = volume2(&cuboid);
+    let _v = volume2(&cuboid);
 
-    let v = cuboid.volume();
+    let _v = cuboid.volume();
 
-    let cube = Cuboid::build_cube(5);
+    let _cube = Cuboid::build_cube(5);
 }
 
 fn build_user(username: String, email: String) -> User {

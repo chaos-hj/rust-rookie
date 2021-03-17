@@ -1,10 +1,10 @@
 fn main() {
     let s = String::from("Hello world!");
-    let len = first_blank_index(s);
+    let _len = first_blank_index(s);
     let s = String::from("Hi cargo!");
-    let len = first_blank_index2(s);
+    let _len = first_blank_index2(s);
     let s = String::from("Hallo rust!");
-    let firstWord = first_word(&s);
+    let _first_word = first_word(&s);
 }
 
 

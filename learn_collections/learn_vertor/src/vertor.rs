@@ -1,7 +1,7 @@
 pub fn build() {
     let mut v: Vec<i32> = Vec::new();
     {
-        let mut v = vec![1, 2, 3];
+        let v = vec![1, 2, 3];
         {
             for i in v {
                 println!("{}", i);

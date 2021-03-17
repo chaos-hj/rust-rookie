@@ -4,19 +4,19 @@ mod front_of_house {
         pub fn add_to_waitlist() {
             println!("add to waitlist");
         }
-        fn seat_at_table() {
+        fn _seat_at_table() {
             println!("seat at table");
         }
     }
 
     mod serving {
-        fn take_order() {
+        fn _take_order() {
             println!("take order");
         }
-        fn server_order() {
+        fn _server_order() {
             println!("server order");
         }
-        fn take_payment() {
+        fn _take_payment() {
             println!("take payment");
         }
     }
@@ -35,15 +35,17 @@ pub fn eat_at_restaurant() {
 fn serve_order() {}
 
 mod back_of_house {
-    fn cook_order() {}
-    fn fix_incorrect_order() {
+    pub fn cook_order() {
+        println!("cook_order");
+    }
+    fn _fix_incorrect_order() {
         cook_order();
         super::serve_order();
     }
 
     pub struct Breakfast {
         pub toast: String,
-        seasonal_fruit: String,
+        pub seasonal_fruit: String,
     }
 
     impl Breakfast {
@@ -56,7 +58,7 @@ mod back_of_house {
     }
 
     pub enum Appetizer {
-        Soup,
+        _Soup,
         Salad,
     }
 }
@@ -64,9 +66,14 @@ mod back_of_house {
 pub fn eat_summer() {
     let mut meal = back_of_house::Breakfast::summer("Rye");
     meal.toast = String::from("wheat");
+    println!("seasonal friut is {}", meal.seasonal_fruit);
     println!("I'd like {} toast please", meal.toast);
 
-    let order = back_of_house::Appetizer::Salad;
+    let _order = back_of_house::Appetizer::Salad;
+
+    serve_order();
+
+    back_of_house::cook_order();
 }
 
 use crate::front_of_house::hosting;
@@ -77,7 +84,7 @@ pub fn eat_breakfast() {
 
 mod meal;
 use crate::meal::{lunch, choose_meal};
-fn main() {
+fn _run() {
    lunch::eat_lunch();
    choose_meal();
 }

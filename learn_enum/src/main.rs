@@ -1,3 +1,4 @@
+#[derive(Debug)]
 enum IpAddrKind {
     V4,
     V6,
@@ -15,15 +16,15 @@ enum IpAddrEnum {
 
 enum IpAddrEnum1 {
     V4(u8, u8, u8, u8),
-    V6(String),
+    _V6(String),
 }
 
 fn main() {
-    let four = IpAddrKind::V4;
+    let _four = IpAddrKind::V4;
 
     route(IpAddrKind::V4);
 
-    let localhost = IpAddr {
+    let _localhost = IpAddr {
         kind: IpAddrKind::V4,
         address: String::from("127.0.0.1"),
     };
@@ -32,22 +33,23 @@ fn main() {
         kind: IpAddrKind::V6,
         address: String::from("::1"),
     };
-    let localhost = IpAddrEnum::V4(String::from("127.0.0.1"));
-    let loopback = IpAddrEnum::V6(String::from("::1"));
+    println!("kind:{:?}, address: {}", loopback.kind, loopback.address);
+    let _localhost = IpAddrEnum::V4(String::from("127.0.0.1"));
+    let _loopback = IpAddrEnum::V6(String::from("::1"));
 
-    let localhost = IpAddrEnum1::V4(127, 0, 0, 1);
+    let _localhost = IpAddrEnum1::V4(127, 0, 0, 1);
 
     let m = Message::Quit;
     m.call();
 }
 
-fn route(ip_type: IpAddrKind) {}
+fn route(_ip_type: IpAddrKind) {}
 
 enum Message {
     Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
+    _Move { x: i32, y: i32 },
+    _Write(String),
+    _ChangeColor(i32, i32, i32),
 }
 
 impl Message {
@@ -56,15 +58,15 @@ impl Message {
     }
 }
 
-fn option_test() {
-    let some_number = Some(5);
-    let some_string = Some("a string");
-    let absent_number: Option<i32> = None;
+fn _option_test() {
+    let _some_number = Some(5);
+    let _some_string = Some("a string");
+    let _absent_number: Option<i32> = None;
 
     let x: i8 = 5;
     let y: Option<i8> = Some(10);
 
-    let z = x + y.expect("y is none");
+    let _z = x + y.expect("y is none");
 
     let mut x = Some(2);
 
@@ -81,7 +83,7 @@ enum Coin {
     Quarter(UsState),
 }
 
-fn value_in_cents(coin: Coin) -> u8 {
+fn _value_in_cents(coin: Coin) -> u8 {
     match coin {
         Coin::Penny => {
             println!("Lucky Penny!");
@@ -98,20 +100,20 @@ fn value_in_cents(coin: Coin) -> u8 {
 
 #[derive(Debug)]
 enum UsState {
-    Alabama,
-    Alaska,
+    _Alabama,
+    _Alaska,
     // --snip--
 }
 
 
-fn plus_one(x: Option<i32>, msg: &str) -> i32 {
+fn _plus_one(x: Option<i32>, msg: &str) -> i32 {
     match x {
         None => x.expect(msg),
         Some(v) => v+1,
     }
 }
 
-fn match_under() {
+fn _match_under() {
     let some_u8_number = 0u8;
 
     match some_u8_number {
@@ -120,7 +122,7 @@ fn match_under() {
     }
 }
 
-fn let_match() {
+fn _let_match() {
     let mut some_u8_number = Some(0u8);
     match some_u8_number {
         Some(3) => println!("Three"),
@@ -132,4 +134,6 @@ fn let_match() {
     } else {
         some_u8_number = None;
     }
+
+    println!("{:?}", some_u8_number);
 }

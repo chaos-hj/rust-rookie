@@ -69,7 +69,7 @@ fn largest_char(list: &[char]) -> char {
     largest
 }
 
-fn largest_t<T: PartialOrd + Copy>(list: &[T]) -> T {
+fn _largest_t<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
     for &item in list {
         if item > largest {
@@ -84,8 +84,8 @@ struct Point<T> {
     y: T,
 }
 
-fn test_1() {
-    let point = Point { x: 4, y: 5 };
+fn _test_1() {
+    let _point = Point { x: 4, y: 5 };
 }
 
 struct Point1<T, U> {
@@ -93,8 +93,8 @@ struct Point1<T, U> {
     y: U,
 }
 
-fn test_2() {
-    let point = Point1 { x: 4, y: 5.0 };
+fn _test_2() {
+    let _point = Point1 { x: 4, y: 5.0 };
 }
 
 impl<T> Point<T> {
@@ -103,7 +103,7 @@ impl<T> Point<T> {
     }
 }
 
-fn test_3() {
+fn _test_3() {
     let p = Point { x: 4, y: 5 };
     println!("p.x = {}", p.x());
 }
@@ -114,8 +114,8 @@ impl Point<f32> {
     }
 }
 
-fn test_4(p: &Point<f32>) {
-    let distance = p.distance();
+fn _test_4(p: &Point<f32>) {
+    let _distance = p.distance();
 }
 
 impl<T: Copy, U> Point1<T, U> {
@@ -127,7 +127,7 @@ impl<T: Copy, U> Point1<T, U> {
     }
 }
 
-fn test_5() {
+fn _test_5() {
     let p1 = Point1 { x: 3, y: 3.3 };
     let p2 = Point1 { x: true, y: 'l' };
     let p3 = p1.mixup(p2);
@@ -180,18 +180,18 @@ pub fn notify1<T: Summary>(item: T) {
 
 use std::fmt::Display;
 use Clone;
-pub fn test_6(item: impl Summary + Display) {}
+pub fn test_6(_item: impl Summary + Display) {}
 
-fn test_7(x: impl Summary + Display, y: impl Summary + Clone) {}
+fn _test_7(_x: impl Summary + Display, _y: impl Summary + Clone) {}
 
-fn test_8<T, U>(t: T, u: U)
+fn _test_8<T, U>(_t: T, _u: U)
 where
     T: Summary + Display,
     U: Summary + Clone,
 {
 }
 
-fn test_9<T, U>(t: T, u: U) -> i32
+fn _test_9<T, U>(_t: T, _u: U) -> i32
 where
     T: Clone + Display,
     U: Summary,
@@ -199,7 +199,7 @@ where
     2
 }
 
-fn returns_summarizable() -> impl Summary {
+fn _returns_summarizable() -> impl Summary {
     Tweet {
         username: "Jankos".to_string(),
         content: "LOL".to_string(),
@@ -208,7 +208,7 @@ fn returns_summarizable() -> impl Summary {
     }
 }
 
-fn switch(clazz_type: String) -> impl Summary {
+fn _switch(clazz_type: String) -> impl Summary {
     if clazz_type == "Tweet".to_string() {
         Tweet {
             username: "l".to_string(),
@@ -232,19 +232,19 @@ fn switch(clazz_type: String) -> impl Summary {
     }
 }
 
-struct Pair<T> {
+struct _Pair<T> {
     x: T,
     y: T,
 }
 
-impl<T> Pair<T> {
-    fn new(x: T, y: T) -> Self {
+impl<T> _Pair<T> {
+    fn _new(x: T, y: T) -> Self {
         Self { x, y }
     }
 }
 
-impl<T: Display + PartialOrd> Pair<T> {
-    fn cmp_display(&self) {
+impl<T: Display + PartialOrd> _Pair<T> {
+    fn _cmp_display(&self) {
         if self.x >= self.y {
             println!("The bigger member is {}", self.x);
         } else {
@@ -253,11 +253,11 @@ impl<T: Display + PartialOrd> Pair<T> {
     }
 }
 
-fn test_10() {
-    let r;
+fn _test_10() {
+    let _r;
     {
         let x = 5;
-        r = &x;
+        _r = &x;
         // x is dropped here
     }
     // println!("{}", r); // use borrowed x
@@ -273,26 +273,26 @@ fn longer<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     }
 }
 
-fn test_11() {
+fn _test_11() {
     let s1 = String::from("hello");
     let s2 = "xyz";
     let result = longer(s1.as_str(), s2);
     println!("The longer string betwwen {} and {} is {}", s1, s2, result);
 }
 
-fn test_12() {
+fn _test_12() {
     let s1 = String::from("long string is long");
-    let result1;
+    let _result1;
     {
         let s2 = String::from("xyz");
         let result = longer(s1.as_str(), s2.as_str());
-        result1 = longer(s1.as_str(), s2.as_str());
+        _result1 = longer(s1.as_str(), s2.as_str());
         println!("The longer string is {}", result);
     }
     // println!("{}", result1);
 }
 
-fn test_13<'a>() -> &'a str {
+fn _test_13<'a>() -> &'a str {
     "hello"
 }
 
@@ -300,15 +300,15 @@ struct ImportantExcerpt<'a> {
     part: &'a str,
 }
 
-fn test_14() {
+fn _test_14() {
     let novel = String::from("Call me Ishmael. Some years ago...");
     let first_sentence = novel.split('.').next().expect("Could not find a '.'");
-    let i = ImportantExcerpt {
+    let _i = ImportantExcerpt {
         part: first_sentence,
     };
 }
 
-fn first_word(s: &str) -> &str {
+fn _first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
     for (i, &item) in bytes.iter().enumerate() {
@@ -320,24 +320,24 @@ fn first_word(s: &str) -> &str {
 }
 
 impl ImportantExcerpt<'_> {
-    fn level(&self) -> i32 {
+    fn _level(&self) -> i32 {
         3
     }
 }
 
 impl ImportantExcerpt<'_> {
-    fn announce_and_return_part(&self, announcement: &str) -> &str {
+    fn _announce_and_return_part(&self, announcement: &str) -> &str {
         println!("Attention please: {}", announcement);
         self.part
     }
 }
 
-fn test_15() {
-    let s = "hello";
-    let s: &'static str = "I have a static lifetime";
+fn _test_15() {
+    let _s = "hello";
+    let _s: &'static str = "I have a static lifetime";
 }
 
-fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+fn _longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
 where
     T: Display,
 {

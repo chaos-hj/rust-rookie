@@ -3,22 +3,22 @@ fn main() {
     let s = String::from("hello");
     takes_ownership(s);
 
-    let x = 5;
+    let _x = 5;
     makes_copy(5);
 
     let s = gives_ownership();
 
     let s1 = takes_and_gives_back(s);
 
-    let (s2, len) = calculate_length(s1);
+    let (s2, _len) = calculate_length(s1);
 
-    let len = calculate_length1(&s2);
+    let _len = calculate_length1(&s2);
 
     let mut s3 = String::from("Hello");
     change(&mut s3);
 
     {
-        let r1 = &mut s3;
+        let _r1 = &mut s3;
     }
     let r2 = &mut s3;
     println!("{}", r2);

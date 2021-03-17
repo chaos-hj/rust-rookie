@@ -13,7 +13,7 @@ fn main() {
 
     //array
 
-    let months = [
+    let _months = [
         "January",
         "February",
         "March",
@@ -42,18 +42,18 @@ fn main() {
 
     //move
     let s1 = String::from("hello");
-    let size1 = doSomething(s1);
-    println!("{} length {}", s1, size1);
+    let _size1 = do_something(s1);
+    // println!("{} length {}", s1, size1);
     //borrow
     let s2 = String::from("world");
-    let size2 = doSomething2(&s2);
+    let size2 = do_something2(&s2);
     println!("{} length {}", s2, size2);
 
     let mut s = String::from("hello");
-    let r1 = &s;
-    let r2 = &s;
-    let r3 = &mut s;
-    println!("{}, {}, and {}", r1, r2, r3);
+    let _r1 = &s;
+    let _r2 = &s;
+    let _r3 = &mut s;
+    // println!("{}, {}, and {}", r1, r2, r3);
 
     let mut s = String::from("hello");
     let r1 = &s; 
@@ -71,12 +71,12 @@ fn iter(x: i32, y: i32) {
     println!("End iter fn");
 }
 
-fn doSomething(s: String) -> usize {
+fn do_something(s: String) -> usize {
     let len = s.len();
     len
 }
 
-fn doSomething2(s: &String) -> usize {
+fn do_something2(s: &String) -> usize {
     s.len()
 }
 
@@ -84,13 +84,13 @@ fn doSomething2(s: &String) -> usize {
  *this function's return type contains a borrowed value, but there is no value for it to be borrowed from
  *help: consider using the `'static` lifetime: `&'static
 */
-fn dangle<'a>() -> &'a str {
+fn _dangle<'a>() -> &'a str {
     // let s = String::from("hello");
     // &s
     "hello"
 }
 
-fn no_dangle() -> String {
+fn _no_dangle() -> String {
     let s = String::from("hello");
 
     s

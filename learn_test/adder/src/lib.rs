@@ -51,18 +51,18 @@ mod tests {
 }
 
 #[derive(Debug)]
-struct Rectangle {
+pub struct Rectangle {
     width: u32,
     height: u32,
 }
 
 impl Rectangle {
-    fn can_hold(&self, other: &Rectangle) -> bool {
+    pub fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
 }
 
-fn add_one(a: i32) -> i32 {
+pub fn add_one(a: i32) -> i32 {
     a + 1
 }
 

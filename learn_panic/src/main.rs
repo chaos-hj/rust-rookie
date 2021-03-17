@@ -10,6 +10,7 @@ fn main() {
         },
     };
 
+    let f = File::open("hello.txt");
     let _f = match f {
         Ok(file) => file,
         Err(error) => match error.kind() {
@@ -17,11 +18,11 @@ fn main() {
                 Ok(fc) => fc,
                 Err(e) => panic!("Failed creating the file : {:?}", e),
             },
-            other_error => panic!("other reason: {:?}", error),
+            _other_error => panic!("other reason: {:?}", error),
         },
     };
 
-    let f = File::open("hello.txt").unwrap_or_else(|error| {
+    let _f = File::open("hello.txt").unwrap_or_else(|error| {
         if error.kind() == ErrorKind::NotFound {
             File::create("hello.txt").unwrap_or_else(|error| {
                 panic!("Failed creating the file : {:?}", error);
@@ -31,7 +32,7 @@ fn main() {
         }
     });
 
-    let f = File::open("hello.txt").unwrap();
+    let _f = File::open("hello.txt").unwrap();
     let v = vec![1, 2, 3];
     v[99];
 }
@@ -39,7 +40,7 @@ fn main() {
 use std::io::Error;
 use std::io::Read;
 
-fn read_username_from_file() -> Result<String, Error> {
+fn _read_username_from_file() -> Result<String, Error> {
     let f = File::open("hello.txt");
 
     let mut f = match f {
@@ -54,27 +55,30 @@ fn read_username_from_file() -> Result<String, Error> {
     }
 }
 
-fn read_username_from_file1() -> Result<String, Error> {
+fn _read_username_from_file1() -> Result<String, Error> {
     let mut f = File::open("hello.txt")?;
     let mut s = String::new();
     f.read_to_string(&mut s)?;
     Ok(s)
 }
 
-fn read_username_from_file2() -> Result<String, Error> {
+fn _read_username_from_file2() -> Result<String, Error> {
     let mut s = String::new();
     File::open("hello.txt")?.read_to_string(&mut s)?;
     Ok(s)
 }
 
 use std::fs;
-fn read_username_from_file3() -> Result<String, Error> {
+fn _read_username_from_file3() -> Result<String, Error> {
     fs::read_to_string("hello.txt")
 }
 
-
-fn read_file() -> Result<(), Box<dyn Error>> {
-    let f = File::open("hello.txt");
+fn _read_file() -> Result<(), Box<dyn std::error::Error>> {
+    let _f = File::open("hello.txt")?;
+    // match f {
+    //     Ok(_) => Ok(()),
+    //     Err(_) => Err(Box::new(Error::from(ErrorKind::NotFound)))
+    // }
     Ok(())
 }
 

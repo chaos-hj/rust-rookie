@@ -4,7 +4,7 @@ fn main() {
     scores.insert("Blue", 10);
     scores.insert("Red", 50);
     let key = "Blue";
-    let socre = scores.get(&key);
+    let _socre = scores.get(&key);
     scores.entry(key).or_insert(10);
 
     let filed_name = String::from("Favorite color");
