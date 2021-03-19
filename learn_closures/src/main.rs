@@ -2,8 +2,8 @@ use std::thread;
 use std::time::Duration;
 
 fn main() {
-    let simulated_user_specified_value = 10;
-    let simulated_random_nuber = 7;
+    let _simulated_user_specified_value = 10;
+    let _simulated_random_nuber = 7;
 
     let x = 4;
     let equal_to_x = |z| z == x;
@@ -143,7 +143,7 @@ mod tests {
     #[test]
     fn call_with_different_value() {
         let mut c = Cacher::new(|a| a);
-        let v1 = c.value(1);
+        let _v1 = c.value(1);
         let v2 = c.value(2);
         assert_eq!(v2, 2);
     }
