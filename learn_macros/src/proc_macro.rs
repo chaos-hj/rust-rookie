@@ -1,22 +1,12 @@
-// proc-macro (function-like)
-// use hello_macro::my_proc_macro;
+use hello_macro::{my_custom_attribute, trace_var};
 
-// pub trait HelloMacro {
-//     fn hello_macro();
-// }
-// use hello_macro::HelloMacro;
 
-use hello_macro::Show;
-// ...
-#[derive(Show)]
-struct MySelf {
-    name: String,
-    age: u8,
-}
-// ...
-
-pub fn it_works() {
-    let me = MySelf{name: "Jamie", age: 255};
-    println!("{}", me); // MySelf (Jamie, 255)
-    // my_proc_macro!(hello)!;
+#[trace_var(p,n)]
+fn factorial(mut n: u64) -> u64 {
+    let mut p = 1;
+    while n > 1 {
+        p *= n;
+        n -= 1;
+    }
+    p
 }

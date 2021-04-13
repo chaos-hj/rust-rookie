@@ -1,4 +1,4 @@
-extern crate learn_vertor; 
+//extern crate learn_vertor; 
 use learn_vertor::vertor::build;
 
 fn main() {

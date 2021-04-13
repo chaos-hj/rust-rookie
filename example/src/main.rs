@@ -7,7 +7,8 @@ fn main() {
     // conversion::it_work();
     // expression::it_works();
     // destructure::it_works();
-    function::it_works();
+    // function::it_works();
+    cfg::it_works();
 }
 mod custom_type;
 mod primitive;
@@ -18,3 +19,4 @@ mod conversion;
 mod expression;
 mod destructure;
 mod function;
+mod cfg;
