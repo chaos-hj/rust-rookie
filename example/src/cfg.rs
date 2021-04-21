@@ -9,6 +9,7 @@ fn are_you_on_linux() {
     println!("You are *not* running linux!")
 }
 
+#[allow(dead_code)]
 pub fn it_works() {
     println!("===========mod cfg===============");
     are_you_on_linux();

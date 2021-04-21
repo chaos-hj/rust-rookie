@@ -8,7 +8,15 @@ fn main() {
     // expression::it_works();
     // destructure::it_works();
     // function::it_works();
-    cfg::it_works();
+    // cfg::it_works();
+    // generic::it_works();
+    // borrow::it_works();
+    // lifetime::it_works();
+    // trait_mod::it_works();
+    // macros::it_works();
+    // result::it_works();
+    collections::it_works();
+    thread::it_works();
 }
 mod custom_type;
 mod primitive;
@@ -20,3 +28,11 @@ mod expression;
 mod destructure;
 mod function;
 mod cfg;
+mod generic;
+mod borrow;
+mod lifetime;
+mod trait_mod;
+mod macros;
+mod result;
+mod collections;
+mod thread;
