@@ -1,1 +1,0 @@
-/home/hank/Documents/workspace/rust/learn_collections/learn_vertor/target/debug/liblearn_vertor.rlib: /home/hank/Documents/workspace/rust/learn_collections/learn_vertor/src/lib.rs /home/hank/Documents/workspace/rust/learn_collections/learn_vertor/src/vertor.rs
