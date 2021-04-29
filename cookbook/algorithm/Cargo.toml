@@ -1,15 +1,11 @@
 [package]
-name = "hello_macro"
+name = "algorithm"
 version = "0.1.0"
 authors = ["chaos-hj"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[lib]
-proc-macro = true
-
 [dependencies]
-proc-macro2 = { version = "1.0", features = ["nightly"] }
-syn = {version = "1.0.57", features = ["full","fold"]}
-quote = "1.0"
+rand = {version = '^0.8.3'}
+rand_distr = {version = '^0.4.0'}

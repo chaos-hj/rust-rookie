@@ -1,5 +1,5 @@
 [package]
-authors = ["kentory <1935624920@qq.com>"]
+authors = ["chaos-hj"]
 edition = "2018"
 name = "learn_macros"
 version = "0.1.0"
